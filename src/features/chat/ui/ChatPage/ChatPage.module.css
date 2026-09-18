@@ -1,0 +1,36 @@
+.page {
+  display: grid;
+  grid-template-columns: minmax(280px, 336px) 1fr;
+  height: 100dvh;
+  padding: var(--space-4);
+  gap: var(--space-4);
+}
+
+.sidebar,
+.chat {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (width <= 880px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 0;
+  }
+
+  .sidebar,
+  .chat {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .page[data-chat-open='true'] .sidebar,
+  .page[data-chat-open='false'] .chat {
+    display: none;
+  }
+}
